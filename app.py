@@ -1,16 +1,23 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template
+from flask_socketio import SocketIO, send
 
 app = Flask (__name__)
+app.config['SECRET_KEY'] = 'secret!'
+socketio = SocketIO(app)
 
 @app.route("/")
 def home():
     return render_template("index.htm")
 
+@socketio.on("message")
+def handle_message(data):
+    name = data.get("name")
+    text = data.get("text")
+    full_message = f"{name}: {text}"
+    print(f"Message received: {full_message}")
+    send(full_message, broadcast=True)
 
-@app.route("/submit", methods=["POST"])
-def submit():
-    user_input = request.form["user_input"]
-    return f"Just submitted: {user_input}"
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    socketio.run(app, debug=True)
+

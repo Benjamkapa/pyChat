@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,5 +17,31 @@
         <input type="text" name="user_input" placeholder="Type Something" required>
         <button type="submit">Submit</button>
     </form>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Relay</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+</head>
+<body align="center">
+    <h2 style="font-family: comic sans ms;"><i style="color:teal">py</i><b style="color:gold">Chat</b></h2>
+    <div id="usernameContainer">
+        <input type="text" id="usernameInput" placeholder="Enter your name" required>
+        <button onclick="setUsername()">Join Chat</button>
+    </div>
+    <div id="chatContainer" style="display:none;">
+    <ul id="messages" style="list-style: none;" align="left"></ul>
+    <input id="messageInput" autocomplete="off"/>
+    <i class="material-icons" onclick="sendMessage()" style="cursor: pointer; height: 2em;">&#xe163;</i>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

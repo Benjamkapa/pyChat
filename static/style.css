@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: transparent;
 }
 
 h1 {
@@ -31,4 +31,37 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+/* General chat styles */
+#messages {
+    padding: 0;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Style each message */
+.message {
+    display: block;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 15px;
+    max-width: 60%;
+    word-wrap: break-word;
+    font-family: sans-serif;
+}
+
+/* Your message – aligned right */
+.my-message {
+    background-color: #DCF8C6;
+    margin-left: auto;
+    text-align: right;
+}
+
+/* Others' message – aligned left */
+.other-message {
+    background-color: #F1F0F0;
+    margin-right: auto;
+    text-align: left;
 }
